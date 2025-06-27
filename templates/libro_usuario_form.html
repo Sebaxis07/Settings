@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="book-detail-card">
+            <h1 class="text-center mb-4" style="color: var(--primary-pastel-variant);">{{ page_title }}</h1>
+            <p class="text-center text-muted mb-4">
+                Completa los datos para agregar un nuevo título a nuestra biblioteca comunitaria.
+            </p>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label class="form-label">{{ form.titulo.label }}</label>
+                    {{ form.titulo }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.autor.label }}</label>
+                    {{ form.autor }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.imagen.label }}</label>
+                    {{ form.imagen }}
+                </div>
+
+                <div class="d-grid mt-4">
+                    <button type="submit" class="btn btn-custom-primary btn-lg">
+                        <i class="bi bi-check-circle-fill me-2"></i> Añadir Libro
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                     <a href="{% url 'index' %}" class="text-muted">Volver al inicio</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

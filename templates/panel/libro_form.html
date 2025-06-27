@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="book-detail-card">
+            <h1 class="text-center mb-4" style="color: var(--primary-pastel-variant);">{{ page_title }}</h1>
+            
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label class="form-label">{{ form.titulo.label }}</label>
+                    {{ form.titulo }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.autor.label }}</label>
+                    {{ form.autor }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ form.imagen.label }}</label>
+                    {{ form.imagen }}
+                </div>
+
+                <div class="d-flex justify-content-center gap-2 mt-4">
+                    <button type="submit" class="btn btn-custom-primary btn-lg">Guardar Cambios</button>
+                    <a href="{% url 'panel:libro_list' %}" class="btn btn-secondary btn-lg">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,218 @@
+/* static/css/styles.css */
+
+/* --- Paleta de Colores y Variables Globales --- */
+:root {
+    --primary-color: #bb86fc;  /* Un violeta vibrante como acento principal */
+    --primary-variant: #3700b3; /* Un violeta más oscuro para estados interactivos */
+    --secondary-color: #03dac6; /* Un turquesa para acentos secundarios */
+    --background-color: #121212; /* Fondo principal oscuro, casi negro */
+    --surface-color: #1e1e1e;   /* Color para superficies como cards y modales */
+    --on-primary-color: #000;    /* Texto sobre el color primario */
+    --on-surface-color: #e0e0e0; /* Texto principal sobre superficies oscuras */
+    --on-surface-muted: #a0a0a0;/* Texto secundario o silenciado */
+    --border-color: #2c2c2c;     /* Color sutil para bordes y separadores */
+    --danger-color: #cf6679;     /* Un rojo suave para errores y eliminaciones */
+
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 8px;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Estilos Base --- */
+body {
+    background-color: var(--background-color);
+    background-image: radial-gradient(circle at 1% 1%, var(--primary-variant) 0%, transparent 30%), 
+                      radial-gradient(circle at 99% 99%, var(--secondary-color) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--on-surface-color);
+    font-family: var(--font-family);
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: rgba(30, 30, 30, 0.85); /* Fondo translúcido */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+.navbar-brand:hover {
+    color: white;
+}
+.navbar-brand .bi {
+    margin-right: 5px;
+}
+
+.nav-link {
+    color: var(--on-surface-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link-button {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+    padding: 8px 15px !important;
+    border-radius: var(--border-radius);
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+.nav-link-button:hover {
+    background-color: var(--primary-variant);
+    color: white;
+}
+
+/* --- Botones Personalizados --- */
+.btn-custom-primary {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom-primary:hover {
+    background-color: var(--primary-variant);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-custom-secondary {
+    background-color: var(--secondary-color);
+    color: var(--on-primary-color);
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom-secondary:hover {
+    background-color: #018786; /* Variante más oscura de secondary */
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Formularios --- */
+.form-control, .form-select {
+    background-color: #2a2a2a;
+    color: var(--on-surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+.form-control:focus, .form-select:focus {
+    background-color: #2a2a2a;
+    color: var(--on-surface-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(187, 134, 252, 0.25);
+}
+.form-label {
+    font-weight: 500;
+    color: var(--on-surface-muted);
+}
+
+/* --- Tarjeta de Libro (Index) --- */
+.book-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+}
+.book-card .card-img-top {
+    height: 380px;
+    object-fit: cover;
+}
+.book-card .card-body {
+    padding: 1rem;
+}
+.book-card .card-title {
+    color: var(--on-surface-color);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.book-card .card-text {
+    color: var(--on-surface-muted);
+}
+.book-card a {
+    text-decoration: none;
+}
+
+/* --- Página de Detalles del Libro --- */
+.book-detail-card {
+    background-color: var(--surface-color);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+}
+.book-detail-img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    max-height: 500px;
+    object-fit: contain;
+}
+.book-detail-card h1 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Sistema de Valoración (Corazones) */
+.rating-hearts > label {
+    color: #444; /* Corazones apagados */
+    cursor: pointer;
+    font-size: 1.75rem;
+    transition: color 0.3s ease;
+}
+.rating-hearts > input:checked ~ label,
+.rating-hearts:not(:checked) > label:hover,
+.rating-hearts:not(:checked) > label:hover ~ label {
+    color: var(--danger-color);
+}
+
+/* --- Notas Adhesivas --- */
+.sticky-note {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.sticky-note p {
+    font-size: 0.95rem;
+    color: #121212;
+}
+.sticky-note small {
+    color: rgba(0,0,0,0.6) !important;
+    font-weight: 500;
+}
+/* Colores de las notas */
+.sticky-note.pink { background-color: #ffc0cb; } /* Rosa */
+.sticky-note.red { background-color: #ff6961; }  /* Rojo */
+.sticky-note.green { background-color: #77dd77; }/* Verde */
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--surface-color);
+    color: var(--on-surface-muted);
+    border-top: 1px solid var(--border-color);
+}
+.social-icon {
+    color: var(--on-surface-muted);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}

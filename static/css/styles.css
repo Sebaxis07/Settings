@@ -1,0 +1,407 @@
+/* static/css/styles.css */
+
+/* --- Paleta de Colores Pastel --- */
+:root {
+    --primary-pastel: #FFD1DC; /* Un rosado suave como primario */
+    --primary-pastel-variant: #FFB6C1; /* Variante un poco más intensa */
+    --secondary-pastel: #F0F8FF; /* Un blanco azulado muy suave como secundario/superficie */
+    --background-pastel: #FFF0F5; /* Un blanco rosado muy claro para el fondo */
+    --on-primary-pastel: #4A142C; /* Texto oscuro para contrastar con el primario pastel */
+    --on-secondary-pastel: #000;   /* Texto oscuro sobre el secundario pastel */
+    --on-background-pastel: #4A142C;/* Texto oscuro sobre el fondo pastel */
+    --border-pastel: #E6E6FA;    /* Un lavanda muy pálido para bordes */
+    --accent-pastel: #FFA07A;     /* Un salmón pastel para acentos */
+
+    --font-family: 'Poppins', sans-serif;
+    --border-radius: 10px;
+    --card-shadow-pastel: 0 2px 10px rgba(0, 0, 0, 0.08);
+    --card-hover-shadow-pastel: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Estilos Base --- */
+body {
+    background-color: var(--background-pastel);
+    color: var(--on-background-pastel);
+    font-family: var(--font-family);
+}
+
+/* --- Barra de Navegación --- */
+.navbar {
+    background-color: rgba(255, 240, 245, 0.9); /* Fondo blanco rosado translúcido */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-pastel);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-pastel-variant);
+}
+.navbar-brand:hover {
+    color: var(--accent-pastel);
+}
+.navbar-brand .bi {
+    margin-right: 5px;
+}
+
+.nav-link {
+    color: var(--on-background-pastel);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-pastel-variant);
+}
+
+.nav-link-button {
+    background-color: var(--primary-pastel);
+    color: var(--on-primary-pastel);
+    padding: 8px 15px !important;
+    border-radius: var(--border-radius);
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+.nav-link-button:hover {
+    background-color: var(--primary-pastel-variant);
+    color: white;
+}
+
+/* --- Botones Personalizados --- */
+.btn-custom-primary {
+    background-color: var(--primary-pastel);
+    color: var(--on-primary-pastel);
+    border: none;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom-primary:hover {
+    background-color: var(--primary-pastel-variant);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-custom-secondary {
+    background-color: var(--accent-pastel);
+    color: white;
+    border: none;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom-secondary:hover {
+    background-color: #FF8C69; /* Variante más oscura del acento */
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* --- Formularios --- */
+.form-control, .form-select {
+    background-color: var(--secondary-pastel);
+    color: var(--on-background-pastel);
+    border: 1px solid var(--border-pastel);
+    border-radius: var(--border-radius);
+}
+.form-control:focus, .form-select:focus {
+    background-color: var(--secondary-pastel);
+    color: var(--on-background-pastel);
+    border-color: var(--primary-pastel-variant);
+    box-shadow: 0 0 0 0.25rem rgba(255, 179, 204, 0.25); /* Rosado más claro para el foco */
+}
+.form-label {
+    font-weight: 500;
+    color: var(--on-background-pastel);
+}
+
+/* --- Tarjeta de Libro (Index) --- */
+.book-card {
+    background-color: var(--secondary-pastel);
+    border: 1px solid var(--border-pastel);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow-pastel);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-hover-shadow-pastel);
+}
+.book-card .card-img-top {
+    height: 350px;
+    object-fit: cover;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.book-card .card-body {
+    padding: 1rem;
+}
+.book-card .card-title {
+    color: var(--on-background-pastel);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.book-card .card-text {
+    color: var(--on-background-pastel);
+    opacity: 0.7;
+}
+.book-card a {
+    text-decoration: none;
+}
+
+/* --- Página de Detalles del Libro --- */
+.book-detail-card {
+    background-color: var(--secondary-pastel);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow-pastel);
+    border: 1px solid var(--border-pastel);
+}
+.book-detail-img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow-pastel);
+    max-height: 450px;
+    object-fit: contain;
+}
+.book-detail-card h1 {
+    font-weight: 700;
+    color: var(--primary-pastel-variant);
+}
+.book-detail-card .lead {
+    color: var(--on-background-pastel);
+    opacity: 0.8;
+}
+
+/* Sistema de Valoración (Corazones) */
+.rating-hearts > label {
+    color: #D3D3D3; /* Corazones grises claros */
+    cursor: pointer;
+    font-size: 1.75rem;
+    transition: color 0.3s ease;
+}
+.rating-hearts > input:checked ~ label,
+.rating-hearts:not(:checked) > label:hover,
+.rating-hearts:not(:checked) > label:hover ~ label {
+    color: var(--primary-pastel);
+}
+
+/* --- Notas Adhesivas --- */
+.sticky-note {
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-pastel);
+}
+.sticky-note p {
+    font-size: 0.95rem;
+    color: var(--on-background-pastel);
+}
+.sticky-note small {
+    color: var(--on-background-pastel) !important;
+    opacity: 0.6;
+    font-weight: 500;
+}
+/* Colores de las notas (ahora más pastel) */
+.sticky-note.pink { background-color: #FFE4E1; } /* Rosa pálido */
+.sticky-note.red { background-color: #FFDAB9; }  /* Durazno claro */
+.sticky-note.green { background-color: #E0FFFF; }/* Aguamarina pálido */
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--secondary-pastel);
+    color: var(--on-background-pastel);
+    opacity: 0.7;
+    border-top: 1px solid var(--border-pastel);
+    padding: 20px 0;
+}
+.social-icon {
+    color: var(--primary-pastel-variant);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icon:hover {
+    color: var(--accent-pastel);
+    transform: scale(1.1);
+}
+¡Excelente observación! Tienes toda la razón, podemos pulir mucho más el diseño de las tarjetas de los libros y, sobre todo, posicionar mejor el botón de "Añadir libro" para que el diseño general sea más limpio, profesional y agradable a la vista.
+
+Aquí te presento una propuesta de mejora en dos partes: primero ajustaremos la estructura HTML de tu index.html y luego añadiremos unos toques al CSS para que todo brille.
+
+1. Mejoras en la Plantilla index.html
+El principal problema es que el botón "Añadir un libro" está dentro del div que contiene la grilla de libros, lo que puede desordenar el diseño. Lo moveremos al encabezado, junto a la barra de búsqueda, que es un lugar más lógico para una acción principal. Además, añadiremos un separador visual para darle más elegancia a la página.
+
+Reemplaza el contenido de tu index.html con este código mejorado:
+
+HTML
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <header class="text-center mb-5">
+        <h1 class="display-4" style="font-weight: 700; color: var(--on-background-pastel);">Tu Biblioteca Digital</h1>
+        <p class="lead mt-2" style="color: var(--on-background-pastel); opacity: 0.8;">Explora, organiza y sigue el progreso de tu lectura.</p>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <form class="d-flex" method="get" role="search">
+                    <input class="form-control me-2 form-control-lg" name="b" type="search" placeholder="Buscar por título o autor..." value="{{ request.GET.b|default:'' }}">
+                    <button class="btn btn-custom-primary btn-lg px-4" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="mt-4">
+            <a href="{% url 'libro_anadir' %}" class="btn btn-custom-primary">
+                <i class="bi bi-plus-circle me-2"></i>Añadir un libro a la comunidad
+            </a>
+        </div>
+        {% endif %}
+    </header>
+
+    <div class="row section-divider my-5">
+         <div class="col-auto mx-auto">
+            <h2 class="section-title">Nuestra Colección</h2>
+         </div>
+    </div>
+
+    <div class="row">
+        {% for libro in datos %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card book-card h-100">
+                <a href="{% url 'libro_detalle' libro.id %}" class="book-card-image-wrapper">
+                    {% if libro.imagen %}
+                        <img src="{{ libro.imagen.url }}" class="card-img-top" alt="{{ libro.titulo }}">
+                    {% else %}
+                        <img src="{% static 'img/default-cover.png' %}" class="card-img-top" alt="Portada no disponible">
+                    {% endif %}
+                    <div class="book-card-overlay">
+                        <div class="overlay-content">
+                            <i class="bi bi-box-arrow-up-right h2"></i>
+                            <p class="mt-1 mb-0">Ver Detalles</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-body text-center d-flex flex-column">
+                    <h5 class="card-title mt-auto">{{ libro.titulo }}</h5>
+                    <p class="card-text">{{ libro.autor }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            <div class="col text-center py-5">
+                <div class="book-detail-card">
+                    <h3 style="color: var(--primary-pastel-variant);">Tu estantería está vacía</h3>
+                    <p class="mt-3">No se encontraron libros. ¡Anímate a añadir el primero!</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+2. Mejoras en el Estilo styles.css
+Ahora, vamos a hacer que esas tarjetas sean más interactivas y elegantes. Añadiremos un efecto de "overlay" (superposición) que aparece cuando pasas el mouse por encima de la portada, invitando al usuario a hacer clic.
+
+Añade este código al final de tu archivo static/css/styles.css:
+
+CSS
+
+/* --- AÑADIR O MODIFICAR ESTAS REGLAS EN STYLES.CSS --- */
+
+/* --- Divisor de Sección --- */
+.section-divider {
+    border-bottom: 2px solid var(--border-pastel);
+    position: relative;
+    margin-bottom: 3rem !important; /* Más espacio */
+}
+.section-title {
+    color: var(--primary-pastel-variant);
+    background-color: var(--background-pastel); /* El mismo color del fondo para "cortar" la línea */
+    padding: 0 20px;
+    position: relative;
+    top: 12px; /* Mueve el título para que se centre sobre la línea */
+    font-weight: 600;
+}
+
+
+/* --- Tarjeta de Libro Mejorada --- */
+.book-card {
+    border: none; /* Quitamos el borde para un look más limpio */
+    box-shadow: 0 4px 15px rgba(135, 93, 103, 0.08); /* Sombra pastel muy sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-10px); /* La tarjeta se eleva un poco más */
+    box-shadow: 0 8px 25px rgba(135, 93, 103, 0.15); /* La sombra se hace más notoria */
+}
+
+/* Contenedor de la imagen para posicionar el overlay */
+.book-card-image-wrapper {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.book-card-image-wrapper img {
+    transition: transform 0.4s ease; /* Transición suave para el zoom */
+}
+
+/* El overlay oscuro que aparece al hacer hover */
+.book-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 209, 220, 0.85); /* Un rosado translúcido para el overlay */
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--on-primary-pastel); /* Texto oscuro que contrasta con el rosado */
+    text-align: center;
+    cursor: pointer;
+}
+
+.overlay-content {
+    font-weight: 500;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Cuando pasas el mouse sobre la tarjeta, el overlay aparece */
+.book-card:hover .book-card-overlay {
+    opacity: 1;
+}
+
+/* Y el contenido del overlay también aparece con una animación */
+.book-card:hover .overlay-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Hacemos un ligero zoom a la imagen para un efecto más dinámico */
+.book-card:hover .book-card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.book-card .card-body {
+    background-color: white; /* Un fondo blanco limpio para la info */
+}
+
+.book-card .card-title {
+    color: #4A142C; /* El color oscuro que definimos */
+    font-weight: 600;
+}
+
+.book-card .card-text {
+    color: #888;
+    font-size: 0.9em;
+}
