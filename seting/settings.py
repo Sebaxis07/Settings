@@ -77,10 +77,15 @@ WSGI_APPLICATION = 'seting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pybooksdatabase',
+        'USER': 'admin',
+        'PASSWORD': 'Admin123',
+        'HOST': 'database-pybooks.c5h0juohv6ug.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
+
 
 
 # Password validation
